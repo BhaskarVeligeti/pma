@@ -1,19 +1,83 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Provider as PaperProvider } from 'react-native-paper';
+import {
+  createAppContainer,
+  createSwitchNavigator,
+} from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import { setNavigator } from './src/navigationRef';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
-}
+// auth :
+import ResolveAuthScreen from './src/screens/auth/ResolveAuthScreen';
+import SigninScreen from './src/screens/auth/SigninScreen';
+// home :
+import HomeScreen from './src/screens/home/HomeScreen';
+// providers declaration :
+import { Provider as AuthProvider } from './src/context/AuthContext'
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+
+
+
+
+
+
+// ******************************************** Auth screens flow : *****************************************************
+
+const AuthStack = createStackNavigator({
+  Signin: {
+    screen: SigninScreen,
+    navigationOptions: {
+      header: null
+    },
   },
-});
+})
+
+// ******************************************** Home flow : *****************************************************
+
+const HomeStack = createStackNavigator({
+  Home: HomeScreen,
+})
+
+
+
+
+// ******************************************** MainNavigator : *****************************************************
+
+
+// centralised router for navigation
+const switchNavigator = createSwitchNavigator({
+  ResolveAuth: ResolveAuthScreen,  // automatic signin process
+  Auth: AuthStack,
+  mainFlow: HomeStack,
+},
+
+  {
+    initialRouteName: 'ResolveAuth'
+  }
+  );
+
+
+
+
+
+
+
+const AppContainer = createAppContainer(switchNavigator);
+
+
+
+
+export default () => {
+  return (
+    <PaperProvider>
+        <AuthProvider>
+          <AppContainer
+            ref={(navigator) => { //Navigation From Outside of React
+              setNavigator(navigator);
+            }} />
+
+        </AuthProvider>
+    </PaperProvider>
+
+  )
+}
