@@ -6,15 +6,16 @@ import {
 } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { setNavigator } from './src/navigationRef';
+// providers declaration :
+import { Provider as AuthProvider } from './src/context/AuthContext'
 
 // auth :
 import ResolveAuthScreen from './src/screens/auth/ResolveAuthScreen';
 import SigninScreen from './src/screens/auth/SigninScreen';
 // home :
 import HomeScreen from './src/screens/home/HomeScreen';
-// providers declaration :
-import { Provider as AuthProvider } from './src/context/AuthContext'
 
+import BranchTodaySalesScreen from './src/screens/visualization/BranchTodaySalesScreen';
 
 
 
@@ -36,7 +37,17 @@ const AuthStack = createStackNavigator({
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
-})
+  BranchTodaySales:BranchTodaySalesScreen
+},{
+  defaultNavigationOptions:{
+    headerStyle: {
+      backgroundColor: '#ffffff',
+      elevation: 0 
+    },
+    headerTintColor: '#6f42c1', 
+  }
+}
+)
 
 
 

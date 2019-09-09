@@ -11,12 +11,12 @@ const AdminCards = ({ navigation }) => {
     return (
         <View style={{backgroundColor:'#ffffff'}}>
         <ScrollView>
-        <TouchableOpacity onPress={() => navigation.navigate('Purchase')}>
+        <TouchableOpacity onPress={() => navigation.navigate('BranchTodaySales')}>
             <Card
                 key={9}
                 title={
                <View style={viewStyle}>
-                <Text style={textStyle}>{'4 Wheeler'}</Text>
+                <Text style={textStyle}>{'Branch wise Today Sales'}</Text>
                 </View>
             }
             containerStyle={containerStyle}

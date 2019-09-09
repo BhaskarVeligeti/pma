@@ -69,8 +69,8 @@ const tryLocalSignin = dispatch => async () => {
     }, 1000);
   } else {
     // step 2: Navigate to Signup
-    // navigate('Home');
-    navigate('Auth');
+    navigate('Home');
+    // navigate('Auth');
   }
 };
 
