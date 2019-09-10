@@ -15,6 +15,10 @@ import SigninScreen from './src/screens/auth/SigninScreen';
 // home :
 import HomeScreen from './src/screens/home/HomeScreen';
 
+
+// test :
+import BarChartTest from './src/screens/test/BarChartTest';
+
 import BranchTodaySalesScreen from './src/screens/visualization/BranchTodaySalesScreen';
 
 
@@ -25,6 +29,13 @@ import BranchTodaySalesScreen from './src/screens/visualization/BranchTodaySales
 // ******************************************** Auth screens flow : *****************************************************
 
 const AuthStack = createStackNavigator({
+  BarChartTest: {
+    screen: BarChartTest,
+    navigationOptions: {
+      header: null
+    },
+  },
+
   Signin: {
     screen: SigninScreen,
     navigationOptions: {
