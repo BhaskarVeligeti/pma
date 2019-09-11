@@ -18,6 +18,7 @@ import HomeScreen from './src/screens/home/HomeScreen';
 
 // test :
 import BarChartTest from './src/screens/test/BarChartTest';
+import BranchSales from './src/screens/test/BranchSales';
 
 import BranchTodaySalesScreen from './src/screens/visualization/BranchTodaySalesScreen';
 
@@ -29,6 +30,14 @@ import BranchTodaySalesScreen from './src/screens/visualization/BranchTodaySales
 // ******************************************** Auth screens flow : *****************************************************
 
 const AuthStack = createStackNavigator({
+  BranchSales: {
+    screen: BranchSales,
+    navigationOptions: {
+      header: null
+    },
+  },
+
+
   BarChartTest: {
     screen: BarChartTest,
     navigationOptions: {
