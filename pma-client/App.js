@@ -31,15 +31,16 @@ import BranchSales from './src/screens/test/BranchSales';
 // ******************************************** Auth screens flow : *****************************************************
 
 const AuthStack = createStackNavigator({
-  BranchSales: {
-    screen: BranchSales,
+ 
+
+  Signin: {
+    screen: SigninScreen,
     navigationOptions: {
       header: null
     },
   },
-
-  Signin: {
-    screen: SigninScreen,
+  BranchSales: {
+    screen: BranchSales,
     navigationOptions: {
       header: null
     },

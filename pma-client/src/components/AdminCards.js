@@ -21,7 +21,7 @@ const AdminCards = ({ navigation }) => {
                             </View>
                         }
                         containerStyle={containerStyle}
-                        image={require(`../../assets/Loader.gif`)}
+                        image={require(`../../assets/2.jpg`)}
 
                     >
                     </Card>
@@ -37,7 +37,7 @@ const AdminCards = ({ navigation }) => {
                             </View>
                         }
                         containerStyle={containerStyle}
-                        image={require(`../../assets/Loader.gif`)}
+                        image={require(`../../assets/1.jpg`)}
                     >
                     </Card>
                 </TouchableOpacity>
@@ -51,7 +51,7 @@ const AdminCards = ({ navigation }) => {
                             </View>
                         }
                         containerStyle={containerStyle}
-                        image={require(`../../assets/Loader.gif`)}
+                        image={require(`../../assets/3.jpg`)}
                     >
                     </Card>
                 </TouchableOpacity>

@@ -49,7 +49,7 @@ const DynamicLineChart = ({ data, fill }) => {
 
 
   return (
-    <View style={{ flex:1,height: 200, flexDirection: 'row' }}>
+    <View style={{ flex:1,height: 400, flexDirection: 'row' }}>
       <YAxis
         data={chartData}
         style={{marginRight:5 }}
@@ -73,7 +73,7 @@ const DynamicLineChart = ({ data, fill }) => {
           <Gradient />
           <Decorator />
           <XAxis
-            style={{ marginTop: 190, height: xAxisHeight }}
+            style={{ marginTop: 400, height: xAxisHeight }}
             data={chartData}
             formatLabel={(_, index) => xAxisLabel[index]}
             contentInset={{ left: 10, right: 10 }}
