@@ -14,13 +14,14 @@ import ResolveAuthScreen from './src/screens/auth/ResolveAuthScreen';
 import SigninScreen from './src/screens/auth/SigninScreen';
 // home :
 import HomeScreen from './src/screens/home/HomeScreen';
+import Sales from './src/screens/visualization/Sales';
+import Trend from './src/screens/visualization/Trend';
+import Product from './src/screens/visualization/Product';
 
 
 // test :
-import BarChartTest from './src/screens/test/BarChartTest';
 import BranchSales from './src/screens/test/BranchSales';
 
-import BranchTodaySalesScreen from './src/screens/visualization/BranchTodaySalesScreen';
 
 
 
@@ -32,14 +33,6 @@ import BranchTodaySalesScreen from './src/screens/visualization/BranchTodaySales
 const AuthStack = createStackNavigator({
   BranchSales: {
     screen: BranchSales,
-    navigationOptions: {
-      header: null
-    },
-  },
-
-
-  BarChartTest: {
-    screen: BarChartTest,
     navigationOptions: {
       header: null
     },
@@ -57,7 +50,9 @@ const AuthStack = createStackNavigator({
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
-  BranchTodaySales:BranchTodaySalesScreen
+  Sales:Sales,
+  Trend:Trend,
+  Product:Product
 },{
   defaultNavigationOptions:{
     headerStyle: {

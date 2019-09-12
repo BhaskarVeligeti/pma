@@ -60,7 +60,9 @@ const DynamicLineChart = ({ data, fill }) => {
           style={{flex:1 }}
           data={chartData}
           contentInset={{ top: 20, bottom: 20 }}
+          curve={d3.curveNatural}
           svg={{
+            fill:'rgba(134, 65, 244, 0.05)',
             strokeWidth: 2,
             stroke: 'url(#gradient)',
           }}
