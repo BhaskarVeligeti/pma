@@ -14,6 +14,7 @@ import ResolveAuthScreen from './src/screens/auth/ResolveAuthScreen';
 import SigninScreen from './src/screens/auth/SigninScreen';
 // home :
 import HomeScreen from './src/screens/home/HomeScreen';
+import LocationScreen from './src/screens/location/LocationScreen';
 import Sales from './src/screens/visualization/Sales';
 import Trend from './src/screens/visualization/Trend';
 import Product from './src/screens/visualization/Product';
@@ -53,7 +54,8 @@ const HomeStack = createStackNavigator({
   Home: HomeScreen,
   Sales:Sales,
   Trend:Trend,
-  Product:Product
+  Product:Product,
+  Location:LocationScreen
 },{
   defaultNavigationOptions:{
     headerStyle: {

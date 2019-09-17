@@ -9,7 +9,7 @@ import {
   todaySales, 
   weeklySales, 
   currentMonthSales, 
-  currentYearSales,
+  currentYearSales,yearSales
  } from '../../fixtures/staticdata.json.js'
 
 
@@ -28,9 +28,7 @@ const Sales = () => {
           <Feather name="info" style={iconStyle} />
           <Text style={headerTextStyle}> Daily sales..</Text>
         </View>
-        <Card containerStyle={containerStyle}>
-          <DynamicBarChart data={todaySales.data} fill='#17a2b8' />
-        </Card>
+        <DynamicBarChart data={yearSales.data} fill='#17a2b8' />
 
         <View style={salesContainer}>
           <Feather name="info" style={iconStyle} />
@@ -50,9 +48,7 @@ const Sales = () => {
           <Feather name="info" style={iconStyle} />
           <Text style={headerTextStyle}> Current Year sales..</Text>
         </View>
-        <Card containerStyle={containerStyle}>
-          <DynamicBarChart data={currentYearSales.data} fill='#fd7e14' />
-        </Card>
+        <DynamicBarChart data={currentYearSales.data} fill='#fd7e14' />
         <Spacer />
       </ScrollView>
     </View>

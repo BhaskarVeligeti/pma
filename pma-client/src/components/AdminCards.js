@@ -11,6 +11,24 @@ const AdminCards = ({ navigation }) => {
     return (
         <View style={{ backgroundColor: '#ffffff' }}>
             <ScrollView>
+
+            <TouchableOpacity onPress={() => navigation.navigate('Location')}>
+                    <Card
+                        key={10}
+                        
+                        title={
+                            <View style={viewStyle}>
+                                <Text style={textStyle}>{'Where are you now!'}</Text>
+                            </View>
+                        }
+                        containerStyle={containerStyle}
+                        image={require(`../../assets/Where-are-you.jpg`)}
+
+                    >
+                    </Card>
+                </TouchableOpacity>
+
+
                 <TouchableOpacity onPress={() => navigation.navigate('Sales')}>
                     <Card
                         key={1}

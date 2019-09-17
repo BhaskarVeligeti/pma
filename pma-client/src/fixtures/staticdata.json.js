@@ -46,6 +46,24 @@ export const currentYearSales = {
 };
 
 
+export const yearSales = {
+	yKey: 'Branch Year Sales',
+ data : [
+    { xValue: 'Jan', yValue: 500 },
+    { xValue: 'Feb', yValue: 312 },
+    { xValue: 'Mar', yValue: 424 },
+    { xValue: 'Apr', yValue: 745 },
+    { xValue: 'May', yValue: 89 },
+    { xValue: 'Jun', yValue: 434 },
+    { xValue: 'Jul', yValue: 650 },
+    { xValue: 'Aug', yValue: 980 },
+    { xValue: 'Sep', yValue: 123 },
+    { xValue: 'Oct', yValue: 186 },
+    { xValue: 'Nov', yValue: 689 },
+    { xValue: 'Dec', yValue: 643 }
+  ]
+};
+
 export const YearlySales = {
 	yKey: 'Year Sales',
 	data: [

@@ -30,7 +30,7 @@ const DynamicBarChart = ({data,fill}) => {
         y={value < CUT_OFF ? y(value) - 10 : y(value) + 15}
         fontSize={14}
         fill={value >= CUT_OFF ? 'white' : 'black'}
-        alignmentBaseline={'middle'}
+        // alignmentBaseline={'middle'}
         textAnchor={'middle'}
       >
         {value}

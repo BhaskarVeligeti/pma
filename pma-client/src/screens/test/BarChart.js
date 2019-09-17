@@ -23,10 +23,6 @@ const BarChart = ({ data, round, unit }) => {
     // X scale point
     const xDomain = data.map(item => item.label)
     const xRange = [0, graphWidth]
-    // const x = d3.scalePoint()
-    //     .domain(xDomain)
-    //     .range(xRange)
-    //     .padding(1)
         const x = d3
 		.scaleBand()
 		.domain(xDomain)

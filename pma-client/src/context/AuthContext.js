@@ -70,11 +70,11 @@ const tryLocalSignin = dispatch => async () => {
   } else {
     // step 2: Navigate to Signup
     // navigate('Home');
-    // navigate('BarChartTest');
+    navigate('Location');
     // navigate('BranchSales');
     
     
-    navigate('Auth');
+    // navigate('Auth');
   }
 };
 
