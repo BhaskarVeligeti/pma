@@ -8,6 +8,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { setNavigator } from './src/navigationRef';
 // providers declaration :
 import { Provider as AuthProvider } from './src/context/AuthContext'
+import { Provider as LocationProvider } from './src/context/LocationContext'
 
 // auth :
 import ResolveAuthScreen from './src/screens/auth/ResolveAuthScreen';
@@ -98,6 +99,7 @@ const AppContainer = createAppContainer(switchNavigator);
 
 export default () => {
   return (
+    <LocationProvider>
     <PaperProvider>
         <AuthProvider>
           <AppContainer
@@ -107,6 +109,7 @@ export default () => {
 
         </AuthProvider>
     </PaperProvider>
+    </LocationProvider>
 
   )
 }

@@ -1,43 +1,33 @@
-import React, { useState, useEffect } from 'react';
+// import './_mockLocation' // fake location to test
+import React, { useContext } from 'react';
 import { StyleSheet, View, Dimensions, Platform } from 'react-native';
 import { Text } from 'react-native-elements'
-import { SafeAreaView } from 'react-navigation'
 const { width, height } = Dimensions.get('window');
+import { SafeAreaView, withNavigationFocus } from 'react-navigation'
 import Map from '../../components/Map'
-import {
-    Accuracy,
-    requestPermissionsAsync,
-    watchPositionAsync
-} from 'expo-location';
+import { Context as LocationContext } from '../../context/LocationContext'
+import useLocation from '../../hooks/useLocation'
 
 
-const LocationScreen = ({ navigation }) => {
-    const [err, setErr] = useState(null);
-
-    // ask permission when this component render
-    const startWatching = async () => {
-        try {
-            await requestPermissionsAsync();
-        } catch (e) {
-            setErr(e);
-        }
-    };
-
-    // run startWatching() first time only 
-    useEffect(() => { 
-        startWatching() }, 
-        []);
-
+const LocationScreen = ({ navigation, isFocused }) => {
+    const { addLocation } = useContext(LocationContext);
+    const [err] = useLocation(isFocused, addLocation);
     const { container } = styles
+
+    //  console.log('isFocused :', isFocused)
+
     return (
         <>
-            {err ? 
-            <Text style={{ color: 'red' }}>{'Please enable location service'}</Text> : 
-            <Map></Map>}
+            {err ?
+                <Text style={{ color: 'red' }}>{'Please enable location service'}</Text> :
+                <Map></Map>}
         </>
     )
 
 }
+
+
+
 
 const styles = StyleSheet.create({
     container: {
@@ -47,4 +37,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default LocationScreen;
+export default withNavigationFocus(LocationScreen);
