@@ -46,7 +46,7 @@ const SigninForm = () => {
 
 
     return (
-        <>
+        <View style={{marginLeft:10,marginRight:10}}>
             <Loader loading={loading} />
             <NavigationEvents onDidFocus={clearErrorMessage} />
             <View style={headerStyle}>
@@ -54,8 +54,6 @@ const SigninForm = () => {
             </View>
             <Spacer />
             {renderError()}
-            <Spacer />
-
             <DynamicTextInput
                 label='Username'
                 maxLength={3}
@@ -85,7 +83,7 @@ const SigninForm = () => {
              <View style={{marginTop:10}}>
              {renderButton()}
             </View>
-        </>)
+        </View>)
 };
 
 

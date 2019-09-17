@@ -12,7 +12,7 @@ const AdminCards = ({ navigation }) => {
         <View style={{ backgroundColor: '#ffffff' }}>
             <ScrollView>
 
-            <TouchableOpacity onPress={() => navigation.navigate('Location')}>
+            {/* <TouchableOpacity onPress={() => navigation.navigate('Location')}>
                     <Card
                         key={10}
                         
@@ -26,7 +26,7 @@ const AdminCards = ({ navigation }) => {
 
                     >
                     </Card>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
 
 
                 <TouchableOpacity onPress={() => navigation.navigate('Sales')}>

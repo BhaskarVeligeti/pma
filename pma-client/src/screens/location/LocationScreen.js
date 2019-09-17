@@ -12,15 +12,16 @@ import useLocation from '../../hooks/useLocation'
 const LocationScreen = ({ navigation, isFocused }) => {
     const { addLocation } = useContext(LocationContext);
     const [err] = useLocation(isFocused, addLocation);
-    const { container } = styles
+    const { container,iconStyle } = styles
 
-    //  console.log('isFocused :', isFocused)
+     console.log('isFocused :', isFocused)
 
     return (
         <>
             {err ?
                 <Text style={{ color: 'red' }}>{'Please enable location service'}</Text> :
-                <Map></Map>}
+                <Map></Map>
+                }
         </>
     )
 

@@ -33,14 +33,23 @@ import BranchSales from './src/screens/test/BranchSales';
 // ******************************************** Auth screens flow : *****************************************************
 
 const AuthStack = createStackNavigator({
- 
-
-  Signin: {
-    screen: SigninScreen,
+  Location: {
+    screen: LocationScreen,
     navigationOptions: {
       header: null
     },
   },
+
+
+  Signin: {
+    screen: SigninScreen,
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: '#ffffff',
+        elevation: 0 
+      },
+      headerTintColor: '#6f42c1'
+  }},
   BranchSales: {
     screen: BranchSales,
     navigationOptions: {
@@ -56,7 +65,7 @@ const HomeStack = createStackNavigator({
   Sales:Sales,
   Trend:Trend,
   Product:Product,
-  Location:LocationScreen
+
 },{
   defaultNavigationOptions:{
     headerStyle: {

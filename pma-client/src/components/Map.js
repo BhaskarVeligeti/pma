@@ -1,16 +1,18 @@
 import React, { useContext } from 'react';
-import { View, StyleSheet, Dimensions, ActivityIndicator } from 'react-native';
-import MapView, { Polyline, Circle } from 'react-native-maps';
-import { Text } from 'react-native-elements';
+import { StyleSheet, Dimensions, ActivityIndicator } from 'react-native';
+import MapView, {Circle } from 'react-native-maps';
 import { Context as LocationContext } from '../context/LocationContext';
-
+import { Text,Button } from 'react-native-elements';
+import { AntDesign } from '@expo/vector-icons';
 const { width, height } = Dimensions.get('window');
+import { withNavigation } from 'react-navigation'
 
-const Map = () => {
-    const {state: { currentLocation }} = useContext(LocationContext);
 
-    const { map, viewStyle } = styles
-    // console.log('currentLocation :', currentLocation.coords)
+const Map = ({ navigation }) => {
+    const { state: { currentLocation } } = useContext(LocationContext);
+
+    const { map, viewStyle, iconStyle } = styles
+    // console.log('currentLocation :', currentLocation)
     /*
     currentLocation : Object {
   "coords": Object {
@@ -26,12 +28,15 @@ const Map = () => {
 }
     */
 
+
+
+
     if (!currentLocation) {
-        return <ActivityIndicator 
-        animating={true}
-        size='large' 
-        color={"#6f42c1"} 
-        style={{ marginTop: 200 }} />;
+        return <ActivityIndicator
+            animating={true}
+            size='large'
+            color={"#6f42c1"}
+            style={{ marginTop: 200 }} />;
     }
 
 
@@ -44,24 +49,30 @@ const Map = () => {
                     latitudeDelta: 0.01,
                     longitudeDelta: 0.01
                 }}
-                // region={{
-                //     ...currentLocation.coords,
-                //     latitudeDelta: 0.01,
-                //     longitudeDelta: 0.01
-                // }}
+            // region={{
+            //     ...currentLocation.coords,
+            //     latitudeDelta: 0.01,
+            //     longitudeDelta: 0.01
+            // }}
             >
                 <Circle
                     center={currentLocation.coords}
                     radius={20}
                     strokeColor="rgba(158, 158, 255, 1.0)"
                     fillColor="rgba(158, 158, 255, 0.3)" />
-            
-                <Text style={viewStyle}>{currentLocation.coords.latitude}</Text>
-                <Text style={viewStyle}>{currentLocation.coords.longitude}</Text>
-        
-            </MapView>
-           
 
+                <Text style={viewStyle}>{currentLocation.coords.latitude} {currentLocation.coords.longitude}</Text>
+              
+            </MapView>
+       
+            <Button
+                    icon={<AntDesign name="login" style={iconStyle} />}
+                    iconRight
+                    title={'Signin '}
+                    onPress={() => navigation.navigate('Signin')}
+                    raised
+                    buttonStyle={{ borderRadius: 2 }}
+                />
         </>
     )
 };
@@ -70,14 +81,18 @@ const Map = () => {
 const styles = StyleSheet.create({
     map: {
         width: width,
-        height: height 
+        height: height-14
     },
     viewStyle: {
-     marginRight:10,
-     alignSelf:'flex-end',
-        color:'#007bff'
-    }
-
+        marginTop: 30,
+        marginRight: 10,
+        alignSelf: 'flex-end',
+        color: '#007bff'
+    },
+     iconStyle: {
+        fontSize: 24,
+        color: 'white'
+    },
 });
 
-export default Map;
+export default withNavigation(Map);

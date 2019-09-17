@@ -9,16 +9,15 @@ const SigninScreen = ({ navigation }) => {
   const { container } = styles
   return (
     <>
-     <Spacer /><Spacer />
     <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : null} style={{ flex: 1,backgroundColor: 'white'  }} enabled >
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View >
-      <Card containerStyle={container}>
+      {/* <Card containerStyle={container}> */}
       <SigninForm />
         <View style={{ flex: 1 }} />
         <Spacer />
         <Spacer />
-        </Card>
+        {/* </Card> */}
       </View>
     </TouchableWithoutFeedback>
   </KeyboardAvoidingView>
