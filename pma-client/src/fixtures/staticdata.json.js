@@ -3,10 +3,28 @@ export const todaySales = {
 	data: [
 		{ xValue: 'Branch 1', yValue: 10000 },
 		{ xValue: 'Branch 2', yValue: 25000 },
-		{ xValue: 'Branch 3', yValue: 30000 },
+		{ xValue: 'Branch 3', yValue: 50000 },
 		{ xValue: 'Branch 4', yValue: 29000 }
 
 	]
+};
+
+export const yearSales = {
+	yKey: 'Branch Year Sales',
+ data : [
+    { xValue: 'Jan', yValue: 500 },
+    { xValue: 'Feb', yValue: 312 },
+    { xValue: 'Mar', yValue: 424 },
+    { xValue: 'Apr', yValue: 745 },
+    { xValue: 'May', yValue: 89 },
+    { xValue: 'Jun', yValue: 434 },
+    { xValue: 'Jul', yValue: 650 },
+    { xValue: 'Aug', yValue: 980 },
+    { xValue: 'Sep', yValue: 123 },
+    { xValue: 'Oct', yValue: 186 },
+    { xValue: 'Nov', yValue: 689 },
+    { xValue: 'Dec', yValue: 643 }
+  ]
 };
 
 
@@ -21,6 +39,16 @@ export const weeklySales = {
 	]
 };
 
+export const areaSales = {
+	yKey: 'Branch Weekly Sales',
+	data: [
+		{ month: new Date(2015, 0, 1),Branch1: 25000,Branch2: 55000 ,Branch3: 50000 ,Branch4: 69000  },
+		{ month: new Date(2015, 1, 1),Branch1: 15000,Branch2: 45000 ,Branch3: 10000 ,Branch4: 49000  },
+		{ month: new Date(2015, 2, 1),Branch1: 35000,Branch2: 65000 ,Branch3: 59000 ,Branch4: 39000  },
+		{ month: new Date(2015, 3, 1),Branch1: 45000,Branch2: 85000 ,Branch3: 23000 ,Branch4: 79000  },
+
+	]
+};
 
 
 export const currentMonthSales = {
@@ -45,24 +73,6 @@ export const currentYearSales = {
 	]
 };
 
-
-export const yearSales = {
-	yKey: 'Branch Year Sales',
- data : [
-    { xValue: 'Jan', yValue: 500 },
-    { xValue: 'Feb', yValue: 312 },
-    { xValue: 'Mar', yValue: 424 },
-    { xValue: 'Apr', yValue: 745 },
-    { xValue: 'May', yValue: 89 },
-    { xValue: 'Jun', yValue: 434 },
-    { xValue: 'Jul', yValue: 650 },
-    { xValue: 'Aug', yValue: 980 },
-    { xValue: 'Sep', yValue: 123 },
-    { xValue: 'Oct', yValue: 186 },
-    { xValue: 'Nov', yValue: 689 },
-    { xValue: 'Dec', yValue: 643 }
-  ]
-};
 
 export const YearlySales = {
 	yKey: 'Year Sales',

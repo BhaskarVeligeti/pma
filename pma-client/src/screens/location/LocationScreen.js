@@ -12,9 +12,9 @@ import useLocation from '../../hooks/useLocation'
 const LocationScreen = ({ navigation, isFocused }) => {
     const { addLocation } = useContext(LocationContext);
     const [err] = useLocation(isFocused, addLocation);
-    const { container,iconStyle } = styles
+    const { container } = styles
 
-     console.log('isFocused :', isFocused)
+    //  console.log('isFocused :', isFocused)
 
     return (
         <>

@@ -1,7 +1,6 @@
 import React from 'react'
 import { View, StyleSheet, ScrollView, Text } from 'react-native';
-import DynamicBarChart from '../../components/DynamicBarChart'
-import DynamicLineChart from '../../components/DynamicLineChart'
+import { DynamicBarChart,DynamicLineChart} from '../../svg-charts'
 import { Feather } from '@expo/vector-icons';
 import { Card } from 'react-native-elements';
 import Spacer from '../../components/Spacer'

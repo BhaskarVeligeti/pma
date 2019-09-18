@@ -1,6 +1,15 @@
 import React from 'react'
 import { View, StyleSheet, ScrollView, Text } from 'react-native';
-import DynamicBarChart from '../../components/DynamicBarChart'
+
+import {
+  DynamicBarChart,
+  DynamicLineChart,
+  DynamicPieChart,
+  DynamicStackedAreaChart,
+  DynamicProgressCircle
+} from '../../svg-charts'
+
+
 import { Feather } from '@expo/vector-icons';
 import { Card } from 'react-native-elements';
 import Spacer from '../../components/Spacer'
@@ -9,7 +18,7 @@ import {
   todaySales, 
   weeklySales, 
   currentMonthSales, 
-  currentYearSales,yearSales
+  currentYearSales,yearSales,  areaSales,
  } from '../../fixtures/staticdata.json.js'
 
 
@@ -28,8 +37,20 @@ const Sales = () => {
           <Feather name="info" style={iconStyle} />
           <Text style={headerTextStyle}> Daily sales..</Text>
         </View>
-        <DynamicBarChart data={yearSales.data} fill='#17a2b8' />
+        <DynamicBarChart data={todaySales.data} fill='#17a2b8' />
+        
+        <Spacer />
+        <DynamicLineChart data={todaySales.data} fill='#17a2b8' />
+        <Spacer />
+        <DynamicPieChart data={todaySales.data} />
+        <Spacer />
 
+        <DynamicStackedAreaChart data={areaSales.data} />
+        <Spacer />
+        <DynamicProgressCircle data={areaSales.data} />
+        <Spacer />
+        <DynamicBarChart data={yearSales.data} fill='#17a2b8' />
+        
         <View style={salesContainer}>
           <Feather name="info" style={iconStyle} />
           <Text style={headerTextStyle}> Weekly sales..</Text>

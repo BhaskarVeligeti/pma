@@ -1,15 +1,11 @@
 import React from 'react'
 import { View, StyleSheet, ScrollView, Text } from 'react-native';
-import DynamicLineChart from '../../components/DynamicLineChart'
+import { DynamicLineChart} from '../../svg-charts'
 import { Feather } from '@expo/vector-icons';
 import { Card } from 'react-native-elements';
 import Spacer from '../../components/Spacer'
 // data
 import { YearlySales } from '../../fixtures/staticdata.json.js'
-
-
-
-
 
 
 const Trend = () => {
