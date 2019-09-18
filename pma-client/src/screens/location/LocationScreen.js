@@ -17,12 +17,12 @@ const LocationScreen = ({ navigation, isFocused }) => {
     //  console.log('isFocused :', isFocused)
 
     return (
-        <>
+        <View style={container}>
             {err ?
                 <Text style={{ color: 'red' }}>{'Please enable location service'}</Text> :
                 <Map></Map>
                 }
-        </>
+        </View>
     )
 
 }
@@ -32,9 +32,10 @@ const LocationScreen = ({ navigation, isFocused }) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-
-    }
+        ...StyleSheet.absoluteFillObject,
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+      },
 
 });
 

@@ -1,17 +1,22 @@
 import React, { useContext } from 'react';
-import { StyleSheet, Dimensions, ActivityIndicator } from 'react-native';
-import MapView, {Circle } from 'react-native-maps';
+import { View, StyleSheet, Dimensions, ActivityIndicator, TouchableOpacity } from 'react-native';
+import MapView, { Circle, Marker } from 'react-native-maps';
 import { Context as LocationContext } from '../context/LocationContext';
-import { Text,Button } from 'react-native-elements';
+import { Text, Button } from 'react-native-elements';
 import { AntDesign } from '@expo/vector-icons';
 const { width, height } = Dimensions.get('window');
 import { withNavigation } from 'react-navigation'
 
 
+const ASPECT_RATIO = width / height;
+const LATITUDE_DELTA = 0.0234;
+const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
+
+
 const Map = ({ navigation }) => {
     const { state: { currentLocation } } = useContext(LocationContext);
 
-    const { map, viewStyle, iconStyle } = styles
+    const { map, viewStyle, iconStyle, button, buttonContainer, bubble } = styles
     // console.log('currentLocation :', currentLocation)
     /*
     currentLocation : Object {
@@ -29,14 +34,10 @@ const Map = ({ navigation }) => {
     */
 
 
-
-
     if (!currentLocation) {
         return <ActivityIndicator
-            animating={true}
             size='large'
-            color={"#6f42c1"}
-            style={{ marginTop: 200 }} />;
+            color={"#6f42c1"} />;
     }
 
 
@@ -46,8 +47,8 @@ const Map = ({ navigation }) => {
                 style={map}
                 initialRegion={{
                     ...currentLocation.coords,
-                    latitudeDelta: 0.01,
-                    longitudeDelta: 0.01
+                    latitudeDelta: LATITUDE_DELTA,
+            longitudeDelta: LONGITUDE_DELTA,
                 }}
             // region={{
             //     ...currentLocation.coords,
@@ -55,24 +56,49 @@ const Map = ({ navigation }) => {
             //     longitudeDelta: 0.01
             // }}
             >
+
+                {/* <TouchableOpacity 
+           onPress = {() => MapView.animateCamera({
+               center: {...currentLocation.coords}})}
+          >
                 <Circle
                     center={currentLocation.coords}
                     radius={20}
-                    strokeColor="rgba(158, 158, 255, 1.0)"
-                    fillColor="rgba(158, 158, 255, 0.3)" />
+                    // strokeColor="rgba(158, 158, 255, 1.0)"
+                    // fillColor="rgba(158, 158, 255, 0.3)"
+                    strokeColor="rgba(158, 0, 0, 1.0)"
+                    fillColor="rgba(158, 0, 0, 0.3)"
+                    strokeWidth={2}
+                    />
+               
+              </TouchableOpacity> */}
+                <Marker.Animated coordinate={currentLocation.coords} pinColor={'#ffd8b1'} />
 
                 <Text style={viewStyle}>{currentLocation.coords.latitude} {currentLocation.coords.longitude}</Text>
-              
+
             </MapView>
-       
-            <Button
+
+            {/* <Button
                     icon={<AntDesign name="login" style={iconStyle} />}
                     iconRight
-                    title={'Signin '}
+                    title={' '}
                     onPress={() => navigation.navigate('Signin')}
                     raised
                     buttonStyle={{ borderRadius: 2 }}
-                />
+                /> */}
+
+
+            <View style={buttonContainer}>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('Signin')}
+                    style={[bubble, button]}
+
+                >
+                    <AntDesign name="login" style={iconStyle} />
+                </TouchableOpacity>
+            </View>
+
+
         </>
     )
 };
@@ -80,8 +106,27 @@ const Map = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     map: {
-        width: width,
-        height: height-14
+        ...StyleSheet.absoluteFillObject,
+    },
+    button: {
+        width: 80,
+        paddingHorizontal: 12,
+        alignItems: 'center',
+        marginHorizontal: 10,
+    },
+    buttonContainer: {
+        flexDirection: 'row',
+        marginVertical: 20,
+        backgroundColor: 'transparent',
+        marginBottom: 0,
+    },
+    bubble: {
+        flex: 1,
+        backgroundColor: 'rgba(255,255,255,0.7)',
+        paddingHorizontal: 18,
+        paddingVertical: 12,
+        borderRadius: 20,
+        marginRight: 20,
     },
     viewStyle: {
         marginTop: 30,
@@ -89,9 +134,9 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-end',
         color: '#007bff'
     },
-     iconStyle: {
+    iconStyle: {
         fontSize: 24,
-        color: 'white'
+        color: '#6f42c1'
     },
 });
 
