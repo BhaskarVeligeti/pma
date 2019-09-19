@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
-import { View, StyleSheet, Dimensions, ActivityIndicator, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Dimensions, ActivityIndicator,TouchableOpacity,TouchableHighlight  } from 'react-native';
 import MapView, { Circle, Marker } from 'react-native-maps';
 import { Context as LocationContext } from '../context/LocationContext';
 import { Text, Button } from 'react-native-elements';
 import { AntDesign } from '@expo/vector-icons';
 const { width, height } = Dimensions.get('window');
-import { withNavigation } from 'react-navigation'
-
+import { withNavigation, withNavigationFocus } from 'react-navigation'
+import { LinearGradient } from 'expo-linear-gradient';
 
 const ASPECT_RATIO = width / height;
-const LATITUDE_DELTA = 0.0234;
+const LATITUDE_DELTA = 0.01;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
 
@@ -37,7 +37,9 @@ const Map = ({ navigation }) => {
     if (!currentLocation) {
         return <ActivityIndicator
             size='large'
-            color={"#6f42c1"} />;
+            color={"#6f42c1"}
+            style={{marginTop:height/2}}
+             />;
     }
 
 
@@ -89,13 +91,20 @@ const Map = ({ navigation }) => {
 
 
             <View style={buttonContainer}>
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('Signin')}
-                    style={[bubble, button]}
-
+                <TouchableHighlight  
+                onPress={() => navigation.navigate('Signin')}
+                underlayColor='#6d3ab0'
+                activeOpacity={0.4}
                 >
-                    <AntDesign name="login" style={iconStyle} />
-                </TouchableOpacity>
+                     <LinearGradient
+                    colors={['#a94bb9', '#9b46b7', '#8d42b5', '#7d3eb2', '#6d3ab0']}
+                    start={{ x: 0, y: 0.5 }}
+                    end={{ x: 1, y: 0.5 }}
+                    style={[bubble, button]}
+                >
+                   <AntDesign name="login" style={iconStyle} />
+                </LinearGradient>
+                </TouchableHighlight >
             </View>
 
 
@@ -109,24 +118,24 @@ const styles = StyleSheet.create({
         ...StyleSheet.absoluteFillObject,
     },
     button: {
-        width: 80,
+        width: width,
         paddingHorizontal: 12,
         alignItems: 'center',
         marginHorizontal: 10,
+ 
     },
     buttonContainer: {
         flexDirection: 'row',
-        marginVertical: 20,
+        marginVertical: 15,
         backgroundColor: 'transparent',
-        marginBottom: 0,
+        marginBottom: 0,  
+     
     },
     bubble: {
-        flex: 1,
-        backgroundColor: 'rgba(255,255,255,0.7)',
-        paddingHorizontal: 18,
-        paddingVertical: 12,
-        borderRadius: 20,
-        marginRight: 20,
+        backgroundColor: 'rgba(255,255,255,1)',
+        paddingHorizontal: 15,
+        paddingVertical: 10
+     
     },
     viewStyle: {
         marginTop: 30,
@@ -135,8 +144,8 @@ const styles = StyleSheet.create({
         color: '#007bff'
     },
     iconStyle: {
-        fontSize: 24,
-        color: '#6f42c1'
+        fontSize: 25,
+        color: 'white'
     },
 });
 
