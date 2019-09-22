@@ -1,32 +1,26 @@
 import React from 'react'
 import { View, StyleSheet, ScrollView, Text } from 'react-native';
-import { DynamicBarChart} from '../../svg-charts'
+import { DynamicLineChart} from '../svg-charts'
 import { Feather } from '@expo/vector-icons';
 import { Card } from 'react-native-elements';
-import Spacer from '../../components/Spacer'
+import Spacer from '../components/Spacer'
 // data
-import {  product } from '../../fixtures/staticdata.json.js'
+import { YearlySales } from '../fixtures/staticdata.json.js'
 
 
-
-
-
-
-const Product = () => {
+const Trend = () => {
 
   const { headerTextStyle, salesContainer, containerStyle, iconStyle } = styles
 
   return (
     <View style={{ backgroundColor: '#fff' }}>
       <ScrollView >
-
-
       <View style={salesContainer}>
           <Feather name="info" style={iconStyle} />
-          <Text style={headerTextStyle}> Most selling products</Text>
+          <Text style={headerTextStyle}> Sales trend analysis</Text>
         </View>
         <Card containerStyle={containerStyle}>
-          <DynamicBarChart data={product.data} fill='#17a2b8' />
+          <DynamicLineChart data={YearlySales.data} fill='#17a2b8' />
         </Card>
         <Spacer />
       </ScrollView>
@@ -79,4 +73,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Product;
+export default Trend;

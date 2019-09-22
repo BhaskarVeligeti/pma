@@ -7,19 +7,19 @@ import {
   DynamicPieChart,
   DynamicStackedAreaChart,
   DynamicProgressCircle
-} from '../../svg-charts'
+} from '../svg-charts'
 
 
 import { Feather } from '@expo/vector-icons';
 import { Card } from 'react-native-elements';
-import Spacer from '../../components/Spacer'
+import Spacer from '../components/Spacer'
 // data
 import { 
   todaySales, 
   weeklySales, 
   currentMonthSales, 
   currentYearSales,yearSales,  areaSales,
- } from '../../fixtures/staticdata.json.js'
+ } from '../fixtures/staticdata.json.js'
 
 
 

@@ -1,18 +1,19 @@
 import React from 'react';
-import { View, ScrollView, TouchableOpacity, StyleSheet,Dimensions } from 'react-native';
-import { Text, Card } from 'react-native-elements';
+import { View, ScrollView, TouchableOpacity, StyleSheet,Dimensions,ActivityIndicator,TouchableHighlight } from 'react-native';
+import { Text, Card,Image, } from 'react-native-elements';
 import { withNavigation } from 'react-navigation'
 import Spacer from './Spacer'
 const { width, height } = Dimensions.get('window');
 
 const AdminCards = ({ navigation }) => {
 
-    const { containerStyle, viewStyle, textStyle, imageStyle } = styles
+    const { containerStyle, titleStyle,viewStyle, textStyle, imageStyle } = styles
     return (
         <View style={{ backgroundColor: '#ffffff' }}>
             <ScrollView>
 
-            {/* <TouchableOpacity onPress={() => navigation.navigate('Location')}>
+
+             {/* <TouchableOpacity onPress={() => navigation.navigate('Location')}>
                     <Card
                         key={10}
                         
@@ -22,26 +23,41 @@ const AdminCards = ({ navigation }) => {
                             </View>
                         }
                         containerStyle={containerStyle}
-                        image={require(`../../assets/Where-are-you.jpg`)}
+                        image={require(`../../assets/images/Where-are-you.jpg`)}
 
                     >
                     </Card>
-                </TouchableOpacity> */}
+                </TouchableOpacity>  */}
 
-
-                <TouchableOpacity onPress={() => navigation.navigate('Sales')}>
+<TouchableOpacity onPress={() => navigation.navigate('Sales')}
+                    underlayColor='#f8f9fa'
+                    activeOpacity={0.4}
+                    >
                     <Card
                         key={1}
-                        
                         title={
                             <View style={viewStyle}>
                                 <Text style={textStyle}>{'Sales'}</Text>
                             </View>
                         }
                         containerStyle={containerStyle}
-                        image={require(`../../assets/2.jpg`)}
+                        image={require(`../../assets/images/2.jpg`)}
+                        imageStyle={{flex:1,
+                            }}
 
-                    >
+                         >
+                            {/* <Image 
+                            source={{uri: 'assets:/2.jpg'}} 
+                            style={{width: 100, height: 100}} /> */}
+                    {/* {    <Image
+                            source={require(`../../assets/images/2.jpg`)}
+                            PlaceholderContent={<ActivityIndicator />}
+                            style={{
+                                flex:1,
+                                width: width/2, height: height/4,
+                                resizeMode: 'contain',
+                              }}
+                        />} */}
                     </Card>
                 </TouchableOpacity>
 
@@ -55,7 +71,7 @@ const AdminCards = ({ navigation }) => {
                             </View>
                         }
                         containerStyle={containerStyle}
-                        image={require(`../../assets/1.jpg`)}
+                        image={require(`../../assets/images/1.jpg`)}
                     >
                     </Card>
                 </TouchableOpacity>
@@ -69,7 +85,7 @@ const AdminCards = ({ navigation }) => {
                             </View>
                         }
                         containerStyle={containerStyle}
-                        image={require(`../../assets/3.jpg`)}
+                        image={require(`../../assets/images/3.jpg`)}
                     >
                     </Card>
                 </TouchableOpacity>
@@ -81,7 +97,7 @@ const AdminCards = ({ navigation }) => {
 }
 const styles = StyleSheet.create({
     containerStyle: {
-        backgroundColor: '#ffffff',
+        // backgroundColor: '#ccc',
         borderRadius: 5,
         borderColor: '#17a2b8',
         shadowColor: "#343a40",
@@ -95,13 +111,20 @@ const styles = StyleSheet.create({
         // height:200
 
     },
+    titleStyle:{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent:'center',
+        marginLeft:0,marginRight:0,
+        color: '#6f42c1',
+    },
     viewStyle: {
         flex: 1,
         alignItems: 'center',
         backgroundColor: '#17a2b8',
-        borderTopLeftRadius: 3,
-        borderTopRightRadius: 3,
-        marginBottom: 15
+        // borderTopLeftRadius: 3,
+        // borderTopRightRadius: 3,
+        // marginBottom: 15
     },
     textStyle: {
         color: '#fff', margin: 10,

@@ -1,9 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, Dimensions, Keyboard,KeyboardAvoidingView,TouchableWithoutFeedback,Platform} from 'react-native';
-import SigninForm from '../../components/SigninForm';
+import SigninForm from '../components/SigninForm';
 import { Card } from 'react-native-elements';
-const { width, height } = Dimensions.get('window');
-import Spacer from '../../components/Spacer'
+import Spacer from '../components/Spacer'
 const SigninScreen = ({ navigation }) => {
 
   const { container } = styles

@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Text, Button,Image } from 'react-native-elements';
 import { AntDesign } from '@expo/vector-icons';
-import Loader from '../../components/Loader';
-import { Context as AuthContext } from '../../context/AuthContext' // accesing Context
-import AdminCards from '../../components/AdminCards'
+import Loader from '../components/Loader';
+import { Context as AuthContext } from '../context/AuthContext' // accesing Context
+import AdminCards from '../components/AdminCards'
 
-const HomeScreen = ({ navigation }) => {
+const MyHomeScreen = ({ navigation }) => {
 
     const { state: { authUser, loading }, signout } = useContext(AuthContext);
     const { headerText, authTextStyle } = styles
@@ -44,7 +44,7 @@ const HomeScreen = ({ navigation }) => {
     )
 
 }
-HomeScreen.navigationOptions = ({ navigation }) => {
+MyHomeScreen.navigationOptions = ({ navigation }) => {
     return {
         headerTitle: () => headerTextDisplay(),
         headerStyle: {
@@ -58,7 +58,7 @@ HomeScreen.navigationOptions = ({ navigation }) => {
           },
         headerLeft: (
             <Image
-                source={require('../../../assets/Loader.gif')}
+                source={require('../../assets/images/Loader.gif')}
                 style={{ width: 40, height: 40 }}
             />
         ),
@@ -109,4 +109,4 @@ const styles = StyleSheet.create({
       }
 });
 
-export default HomeScreen;
+export default MyHomeScreen;

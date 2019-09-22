@@ -52,11 +52,6 @@ export default (shouldTrack, callback) => {
             }
             subscriber = null;
         }
-        // return () => {
-        //     if (subscriber) {
-        //       subscriber.remove();
-        //     }
-        //   };
     },
         [shouldTrack, callback]); // dependendies
 

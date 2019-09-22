@@ -2,11 +2,10 @@
 import React, { useContext } from 'react';
 import { StyleSheet, View, Dimensions, Platform } from 'react-native';
 import { Text } from 'react-native-elements'
-const { width, height } = Dimensions.get('window');
 import { SafeAreaView, withNavigationFocus } from 'react-navigation'
-import Map from '../../components/Map'
-import { Context as LocationContext } from '../../context/LocationContext'
-import useLocation from '../../hooks/useLocation'
+import Map from '../components/Map'
+import { Context as LocationContext } from '../context/LocationContext'
+import useLocation from '../hooks/useLocation'
 
 
 const LocationScreen = ({ navigation, isFocused }) => {
